@@ -1,0 +1,73 @@
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker pull busybox
+Using default tag: latest
+Digest: sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+docker.io/library/busybox:latest
+
+  1. Sign in to your Docker account → docker login
+  2. View a summary of image vulnerabilities and recommendations → docker scout quickview busybox
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker run --name pinger busybox ping -c 7 netology.ru
+PING netology.ru (188.114.99.224): 56 data bytes
+64 bytes from 188.114.99.224: seq=0 ttl=62 time=4.112 ms
+64 bytes from 188.114.99.224: seq=1 ttl=62 time=4.476 ms
+64 bytes from 188.114.99.224: seq=2 ttl=62 time=14.418 ms
+64 bytes from 188.114.99.224: seq=3 ttl=62 time=4.258 ms
+64 bytes from 188.114.99.224: seq=4 ttl=62 time=4.357 ms
+64 bytes from 188.114.99.224: seq=5 ttl=62 time=4.592 ms
+64 bytes from 188.114.99.224: seq=6 ttl=62 time=4.322 ms
+
+--- netology.ru ping statistics ---
+7 packets transmitted, 7 packets received, 0% packet loss
+round-trip min/avg/max = 4.112/5.790/14.418 ms
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
+540d7c2d1f77   busybox   "ping -c 7 netology.…"   About a minute ago   Exited (0) 30 seconds ago             pinger
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker logs -f -t pinger
+2023-09-14T14:30:02.162817823Z PING netology.ru (188.114.99.224): 56 data bytes
+2023-09-14T14:30:02.162838893Z 64 bytes from 188.114.99.224: seq=0 ttl=62 time=4.112 ms
+2023-09-14T14:30:03.163302126Z 64 bytes from 188.114.99.224: seq=1 ttl=62 time=4.476 ms
+2023-09-14T14:30:04.173431108Z 64 bytes from 188.114.99.224: seq=2 ttl=62 time=14.418 ms
+2023-09-14T14:30:05.163402193Z 64 bytes from 188.114.99.224: seq=3 ttl=62 time=4.258 ms
+2023-09-14T14:30:07.163953079Z 64 bytes from 188.114.99.224: seq=5 ttl=62 time=4.592 ms
+2023-09-14T14:30:08.173635041Z 
+2023-09-14T14:30:08.173646341Z --- netology.ru ping statistics ---
+2023-09-14T14:30:08.173649431Z 7 packets transmitted, 7 packets received, 0% packet loss
+2023-09-14T14:30:08.173651821Z round-trip min/avg/max = 4.112/5.790/14.418 ms
+pinger
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+540d7c2d1f77   busybox   "ping -c 7 netology.…"   15 minutes ago   Exited (0) 30 seconds ago             pinger
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker logs -ft pinger
+2023-09-14T14:30:02.162817823Z PING netology.ru (188.114.99.224): 56 data bytes
+2023-09-14T14:30:02.162838893Z 64 bytes from 188.114.99.224: seq=0 ttl=62 time=4.112 ms
+2023-09-14T14:30:03.163302126Z 64 bytes from 188.114.99.224: seq=1 ttl=62 time=4.476 ms
+2023-09-14T14:30:04.173431108Z 64 bytes from 188.114.99.224: seq=2 ttl=62 time=14.418 ms
+2023-09-14T14:30:05.163402193Z 64 bytes from 188.114.99.224: seq=3 ttl=62 time=4.258 ms
+2023-09-14T14:30:06.163617586Z 64 bytes from 188.114.99.224: seq=4 ttl=62 time=4.357 ms
+2023-09-14T14:30:07.163953079Z 64 bytes from 188.114.99.224: seq=5 ttl=62 time=4.592 ms
+2023-09-14T14:30:08.163835452Z 64 bytes from 188.114.99.224: seq=6 ttl=62 time=4.322 ms
+2023-09-14T14:30:08.173635041Z
+2023-09-14T14:30:08.173646341Z --- netology.ru ping statistics ---
+2023-09-14T14:30:08.173649431Z 7 packets transmitted, 7 packets received, 0% packet loss
+2023-09-14T14:30:08.173651821Z round-trip min/avg/max = 4.112/5.790/14.418 ms
+2023-09-14T14:44:49.291808802Z PING netology.ru (188.114.98.224): 56 data bytes
+2023-09-14T14:44:49.291986121Z 64 bytes from 188.114.98.224: seq=0 ttl=62 time=4.012 ms
+2023-09-14T14:44:50.292186625Z 64 bytes from 188.114.98.224: seq=1 ttl=62 time=4.322 ms
+2023-09-14T14:44:51.292131268Z 64 bytes from 188.114.98.224: seq=2 ttl=62 time=4.154 ms
+2023-09-14T14:44:52.292142791Z 64 bytes from 188.114.98.224: seq=3 ttl=62 time=4.103 ms
+2023-09-14T14:44:53.292283454Z 64 bytes from 188.114.98.224: seq=4 ttl=62 time=4.162 ms
+2023-09-14T14:44:54.292420777Z 64 bytes from 188.114.98.224: seq=5 ttl=62 time=4.201 ms
+2023-09-14T14:44:55.292435201Z 64 bytes from 188.114.98.224: seq=6 ttl=62 time=4.115 ms
+2023-09-14T14:44:55.292916720Z
+2023-09-14T14:44:55.292925720Z --- netology.ru ping statistics ---
+2023-09-14T14:44:55.292929140Z 7 packets transmitted, 7 packets received, 0% packet loss
+2023-09-14T14:44:55.292931460Z round-trip min/avg/max = 4.012/4.152/4.322 ms
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker rm pinger
+pinger
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker rmi busybox
+Untagged: busybox:latest
+Untagged: busybox@sha256:3fbc632167424a6d997e74f52b878d7cc478225cffac6bc977eedfe51c7f4e79
+Deleted: sha256:a416a98b71e224a31ee99cff8e16063554498227d2b696152a9c3e0aa65e5824
+Deleted: sha256:3d24ee258efc3bfe4066a1a9fb83febf6dc0b1548dfe896161533668281c9f4f
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> docker ps -a 
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\user\Desktop\НЕТОЛОГИЯ\ndse-homeworks\ndse-docker-install_config> 
